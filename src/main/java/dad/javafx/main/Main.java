@@ -1,4 +1,4 @@
-package Main;
+package dad.javafx.main;
 
 public class Main {
 

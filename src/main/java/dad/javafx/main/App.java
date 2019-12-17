@@ -1,4 +1,4 @@
-package Main;
+package dad.javafx.main;
 
 
 import dad.javafx.datechooser.DateChooser;
