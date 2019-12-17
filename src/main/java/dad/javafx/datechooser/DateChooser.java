@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
+import javax.management.RuntimeErrorException;
+
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
@@ -109,8 +111,10 @@ public class DateChooser extends HBox implements Initializable {
 
 	private void YearChange(String old, String newV) {
 		try {
-			Integer.parseInt(newV);
-		}catch(NumberFormatException e) {
+			if(Integer.parseInt(newV) < 1) {
+				throw new Exception();
+			}
+		}catch(Exception e) {
 			year.setValue(old);
 		}
 		if(Year.of(Integer.parseInt(year.getValue())).isLeap()) {
